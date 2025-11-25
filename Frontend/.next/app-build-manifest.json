@@ -11,21 +11,16 @@
       "static/chunks/main-app.js",
       "static/chunks/app/page.js"
     ],
-    "/admin/api/[...path]/route": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/admin/api/[...path]/route.js"
-    ],
     "/admin/edit/[id]/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/css/app/admin/edit/[id]/page.css",
       "static/chunks/app/admin/edit/[id]/page.js"
     ],
-    "/projects/[slug]/page": [
+    "/admin/api/[...path]/route": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/projects/[slug]/page.js"
+      "static/chunks/app/admin/api/[...path]/route.js"
     ]
   }
 }
