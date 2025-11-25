@@ -1,6 +1,6 @@
 {
+  "/admin/api/[...path]/route": "app/admin/api/[...path]/route.js",
   "/page": "app/page.js",
-  "/projects/[slug]/page": "app/projects/[slug]/page.js",
-  "/admin/projects/page": "app/admin/projects/page.js",
-  "/admin/edit/[id]/page": "app/admin/edit/[id]/page.js"
+  "/admin/edit/[id]/page": "app/admin/edit/[id]/page.js",
+  "/projects/[slug]/page": "app/projects/[slug]/page.js"
 }
