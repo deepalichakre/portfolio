@@ -1,5 +1,5 @@
 // Proxy all /admin/api/* to your Express backend with server-side Basic Auth
-export async function handler(req, ctx) {
+async function _proxyHandler(req, ctx) {
   const url = new URL(req.url);
   const backendBase = process.env.NEXT_PUBLIC_API_BASE || 'http://localhost:4000';
 
@@ -18,6 +18,7 @@ export async function handler(req, ctx) {
   if (hasBody) {
     headers.set('Content-Type', req.headers.get('content-type') || 'application/json');
   }
+
   // Inject backend Basic Auth from env (server-side only)
   headers.set(
     'Authorization',
@@ -31,13 +32,16 @@ export async function handler(req, ctx) {
   });
 
   const respBody = await upstream.text();
-  // Mirror content-type if available
   const ct = upstream.headers.get('content-type') || 'application/json';
-  return new Response(respBody, { status: upstream.status, headers: { 'Content-Type': ct } });
+
+  return new Response(respBody, {
+    status: upstream.status,
+    headers: { 'Content-Type': ct },
+  });
 }
 
 // Map all methods
-export const GET = handler;
-export const POST = handler;
-export const PUT = handler;
-export const DELETE = handler;
+export const GET = _proxyHandler;
+export const POST = _proxyHandler;
+export const PUT = _proxyHandler;
+export const DELETE = _proxyHandler;
