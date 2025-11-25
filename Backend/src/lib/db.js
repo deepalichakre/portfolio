@@ -15,7 +15,10 @@ const g = globalThis;
 export const db = g.__db || new PrismaClient({ log: ['warn', 'error'] });
 if (!g.__db) g.__db = db;
 */
-import { PrismaClient } from "@prisma/client";
+// Backend/src/lib/db.js
+import pkg from "@prisma/client";
+
+const { PrismaClient } = pkg;
 
 const g = globalThis;
 
